@@ -6,14 +6,36 @@ import javax.persistence.*;
 @Table(name = "car")
 public class Car {
 
+    @Id
+    @OneToOne
+    @JoinColumn(name = "user_id", referencedColumnName = "id")
+    private User user;
+
+
+
     @Column(name = "model")
     private String model;
 
     @Column(name = "series")
     private  int series;
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+
+    public Car() {
+
+    }
+
+    public Car(User user, String model, int series) {
+        this.user = user;
+        this.model = model;
+        this.series = series;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
 
     public String getModel() {
         return model;
@@ -29,13 +51,5 @@ public class Car {
 
     public void setSeries(int series) {
         this.series = series;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
     }
 }
