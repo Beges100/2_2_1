@@ -11,6 +11,7 @@ public class User {
 
    @Id
    @GeneratedValue(strategy = GenerationType.IDENTITY)
+   @Column(name = "id")
    private Long id;
 
    @Column(name = "name")
@@ -22,17 +23,18 @@ public class User {
    @Column(name = "email")
    private String email;
 
-   @OneToOne(mappedBy = "user")
+   @OneToOne
    @Cascade(org.hibernate.annotations.CascadeType.SAVE_UPDATE)
    private Car car;
 
-   public User() {}
+   public User() {
 
-   public User(String firstName, String lastName, String email, Car car) {
+   }
+
+   public User(String firstName, String lastName, String email) {
       this.firstName = firstName;
       this.lastName = lastName;
       this.email = email;
-      this.car = car;
    }
 
    public Long getId() {

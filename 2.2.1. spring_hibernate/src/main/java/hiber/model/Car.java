@@ -10,11 +10,12 @@ import java.io.Serializable;
 public class Car implements Serializable {
 
     @Id
-    @OneToOne
-    @JoinColumn(name = "id", referencedColumnName = "id")
+    @Column(name = "id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    @OneToOne(mappedBy = "car")
+    //@JoinColumn(name = "id", referencedColumnName = "id")
     private User user;
-
-
 
     @Column(name = "model")
     private String model;
@@ -25,7 +26,6 @@ public class Car implements Serializable {
     public Car() {
 
     }
-
     public Car(int series, String model) {
         this.model = model;
         this.series = series;
