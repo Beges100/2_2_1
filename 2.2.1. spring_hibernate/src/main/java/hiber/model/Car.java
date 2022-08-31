@@ -1,14 +1,17 @@
 package hiber.model;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
 @Table(name = "car")
-public class Car {
+public class Car implements Serializable {
 
     @Id
     @OneToOne
-    @JoinColumn(name = "user_id", referencedColumnName = "id")
+    @JoinColumn(name = "id", referencedColumnName = "id")
     private User user;
 
 
@@ -23,8 +26,7 @@ public class Car {
 
     }
 
-    public Car(User user, String model, int series) {
-        this.user = user;
+    public Car(int series, String model) {
         this.model = model;
         this.series = series;
     }
