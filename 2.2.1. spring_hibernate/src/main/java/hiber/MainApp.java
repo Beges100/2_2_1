@@ -30,6 +30,7 @@ public class MainApp {
       user3.setCar(car3);
       user4.setCar(car4);
 
+      car1.setUser(user1);
       userService.add(user1);
       userService.add(user2);
       userService.add(user3);
@@ -45,7 +46,7 @@ public class MainApp {
          System.out.println();
       }
       // с помощью HQL вытаскиваем юзера который владеет данной машиной
-      userService.showUserWhereCar(car1);
+      System.out.println(userService.showUserWhereCar(car1.getModel(), car1.getSeries()));
 
       context.close();
    }

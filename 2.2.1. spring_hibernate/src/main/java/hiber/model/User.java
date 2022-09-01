@@ -23,8 +23,9 @@ public class User {
    @Column(name = "email")
    private String email;
 
-   @OneToOne
-   @Cascade(org.hibernate.annotations.CascadeType.SAVE_UPDATE)
+   @OneToOne(cascade = CascadeType.ALL)
+   //@Cascade(org.hibernate.annotations.CascadeType.ALL)
+   @JoinColumn(name = "car_id")
    private Car car;
 
    public User() {

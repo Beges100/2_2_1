@@ -7,6 +7,6 @@ import java.util.List;
 
 public interface UserService {
     void add(User user);
-    public void showUserWhereCar(Car car);
+    User showUserWhereCar(String model, int series);
     List<User> listUsers();
 }
