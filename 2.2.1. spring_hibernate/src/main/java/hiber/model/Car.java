@@ -1,13 +1,10 @@
 package hiber.model;
 
-import org.springframework.beans.factory.annotation.Autowired;
-
 import javax.persistence.*;
-import java.io.Serializable;
 
 @Entity
 @Table(name = "car")
-public class Car implements Serializable {
+public class Car {
 
     @Id
     @Column(name = "id")
@@ -53,5 +50,21 @@ public class Car implements Serializable {
 
     public void setSeries(int series) {
         this.series = series;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    @Override
+    public String toString() {
+        return "Car{" +
+                "model='" + model + '\'' +
+                ", series=" + series +
+                '}';
     }
 }
