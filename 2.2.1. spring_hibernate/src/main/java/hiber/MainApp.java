@@ -45,7 +45,6 @@ public class MainApp {
          System.out.println("Car = " + user.getCar().getSeries() + " " + user.getCar().getModel());
          System.out.println();
       }
-      // с помощью HQL вытаскиваем юзера который владеет данной машиной
       System.out.println(userService.showUserWhereCar(car1.getModel(), car1.getSeries()));
 
       context.close();

@@ -1,8 +1,15 @@
 package hiber.model;
 
-import org.hibernate.annotations.Cascade;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.OneToOne;
+import javax.persistence.CascadeType;
+import javax.persistence.JoinColumn;
 
-import javax.persistence.*;
 
 @Entity
 @Table(name = "car")
@@ -15,7 +22,6 @@ public class Car {
 
     @OneToOne(mappedBy = "car", cascade = CascadeType.ALL)
     @JoinColumn(name = "user_id")
-    //@Cascade(org.hibernate.annotations.CascadeType.ALL)
     private User user;
 
     @Column(name = "model")
